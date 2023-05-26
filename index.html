@@ -1,0 +1,48 @@
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Report WB</title>
+  <link href="style.css" rel="stylesheet">
+ </head>
+ <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script lang="javascript" src="./lib/xlsx.core.min.js"></script>
+<script lang="javascript" src="./lib/xlsx.full.min.js"></script>
+<script lang="javascript" src="./lib/FileSaver.js"></script>
+<script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+    var xl2json = new ExcelToJSON();
+    xl2json.parseExcel(files[0]);
+  }
+</script>
+<header>
+  <div class="logo"></div>
+</header>
+<main>
+  <div class="guid">
+    <p>1. Устанавливаем дату отчета</p>
+    <p>2. Нажимаем кнопку "Получить отчет"</p>
+    <p>3. Ждем сообщение о загрузке отчета</p>
+    <p>4. После сообщение о загрузке отчета нажимаем кнопку "Скачать отчет"</p>
+    <p>5. Открываем эксель и в первом столбце по фильтру находим нужный отчет. Их в файле сразу два Казахстан и основной отчет</p>
+  </div>
+  <div class="date">
+    <p>Дата начала отчета</p> 
+    <input type="date" id="start" name="trip-start" value="2023-05-26">
+  </div>
+  <div>
+    <p>Дата конца отчета</p> 
+    <input type="date" id="end" name="trip-start" value="2023-05-26">
+  </div>
+  <div class="button">
+    <input type="button" onclick="getReport()" value="Получить отчет">
+    <input type="button" onclick="GettingReport()" value="Скачать отчет">
+  </div>
+
+  
+</div>
+  </main>
+<script type="text/javascript" src = "./js/script.js" defer></script>
+ </body>
+</html>
